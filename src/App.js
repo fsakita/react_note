@@ -1,4 +1,6 @@
 import React from 'react'
+import Routes from './routes'
+import { withRouter } from 'react-router'
 
 class App extends React.Component {
   constructor (props) {
@@ -9,10 +11,10 @@ class App extends React.Component {
   render () {
     return (
       <div className='c-app'>
-        React Note
+        <Routes />
       </div>
     )
   }
 }
 
-export default App
+export default withRouter(App)
