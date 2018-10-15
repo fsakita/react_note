@@ -1,8 +1,9 @@
 import React from 'react'
+import { NoteListContainer } from 'components/noteList'
 
 const NotesApp = (props) => {
   return (
-    <h1>Notes App</h1>
+    <NoteListContainer />
   )
 }
 
