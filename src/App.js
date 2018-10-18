@@ -1,5 +1,6 @@
 import React from 'react'
 import Routes from './routes'
+import { HeaderContainer } from 'components/header'
 import { withRouter } from 'react-router'
 
 class App extends React.Component {
@@ -11,6 +12,7 @@ class App extends React.Component {
   render () {
     return (
       <div className='c-app'>
+        <HeaderContainer />
         <Routes />
       </div>
     )
