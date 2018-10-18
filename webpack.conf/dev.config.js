@@ -21,6 +21,8 @@ var config = {
       components: APP_DIR + '/components',
       services: APP_DIR + '/services',
       stores: APP_DIR + '/stores',
+      utils: APP_DIR + '/utils',
+      strings: APP_DIR + '/config/strings',
       views: APP_DIR + '/views'
     }
   },
