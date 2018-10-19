@@ -7,7 +7,7 @@ const BUILD_DIR = path.resolve(__dirname, 'dist')
 
 var config = {
   mode: 'development',
-  entry: ['babel-polyfill', APP_DIR + '/index.js'],
+  entry: ['babel-polyfill', APP_DIR + '/index.js', 'xlsx', 'file-saver'],
   output: {
     path: BUILD_DIR,
     filename: 'js/bundle.js',
@@ -65,6 +65,11 @@ var config = {
       }
     ]
   },
+  node: {fs: 'empty'},
+  externals: [
+    {'./cptable': 'var cptable'},
+    {'./jszip': 'jszip'}
+  ],
   devtool: 'source-map',
   plugins: [
     new HtmlWebpackPluginConfig({

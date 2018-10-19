@@ -2,6 +2,7 @@ import React from 'react'
 import './Header.less'
 import { Menu, Container, Button, Modal, Input } from 'semantic-ui-react'
 import NoteForm from 'components/noteForm/NoteForm'
+import ExportButton from 'components/exportButton/ExportButton'
 
 const Header = (props) => {
 
@@ -12,6 +13,9 @@ const Header = (props) => {
           Notes App
         </Menu.Item>
         <Menu.Menu position='right'>
+            <Menu.Item>
+                <ExportButton />
+            </Menu.Item>
             <Menu.Item>
                 <NoteForm text='' action='add' />
             </Menu.Item>

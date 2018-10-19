@@ -84,7 +84,7 @@ class NoteForm extends React.Component {
   render() {
     let { text, action, tagsInputValue, tags } = this.state
   
-    let trigger = action === 'edit' ? <a className='c-note_item__card__buttons-edit' onClick={this.handleOpen}>Edit</a> : <Button onClick={this.handleOpen}>+ Note</Button>
+    let trigger = action === 'edit' ? <a className='c-note_item__card__buttons-edit' onClick={this.handleOpen}>Edit</a> : <Button icon labelPosition='left' onClick={this.handleOpen}><Icon name='add circle' />Note</Button>
     
     return (
       <Modal
