@@ -13,9 +13,9 @@ const Header = (props) => {
           Notes App
         </Menu.Item>
         <Menu.Menu position='right'>
-            <Menu.Item>
+            {/* <Menu.Item>
                 <ExportButton />
-            </Menu.Item>
+            </Menu.Item> */}
             <Menu.Item>
                 <NoteForm text='' action='add' />
             </Menu.Item>
