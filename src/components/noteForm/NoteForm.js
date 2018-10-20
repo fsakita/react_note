@@ -14,7 +14,9 @@ class NoteForm extends React.Component {
       action: props.action,
       noteIndex: props.noteIndex,
       tagsInputValue: '',
-      tags: props.tags || []
+      tags: props.tags || [],
+      createdAt: props.createdAt || '',
+      lastModifiedAt: ''
     }
     this.handleOpen = this.handleOpen.bind(this)
     this.handleClose = this.handleClose.bind(this)
@@ -29,13 +31,7 @@ class NoteForm extends React.Component {
   }
 
   handleClose () {
-    let content = this.state.action === 'edit' ? this.state.text : ''
-    this.setState({ 
-      modalOpen: false,
-      text: content,
-      tagsInputValue: '',
-      tags: []
-     })
+    this.setState({ modalOpen: false })
   }
 
   handleChange(e, {name, value}) {
@@ -43,13 +39,15 @@ class NoteForm extends React.Component {
   }
 
   handleSubmit () {
+    let { action } = this.state
+    let nowDate = new Date().toISOString()
+    if(action == 'add'){
+      this.state.createdAt = nowDate
+    }
+    this.state.lastModifiedAt = nowDate
+
     noteActions.asyncCall(noteActionTypes.NOTES_ADD_NOTE, this.state)
-    this.setState({
-      modalOpen: false,
-      text: '',
-      tagsInputValue: '',
-      tags: []
-    })
+    this.handleClose()
   }
 
   addTag (e) {
@@ -83,8 +81,7 @@ class NoteForm extends React.Component {
 
   render() {
     let { text, action, tagsInputValue, tags } = this.state
-  
-    let trigger = action === 'edit' ? <a className='c-note_item__card__buttons-edit' onClick={this.handleOpen}>Edit</a> : <Button onClick={this.handleOpen}>+ Note</Button>
+    let trigger = action === 'edit' ? <a className='c-note_item__card__buttons-edit' onClick={this.handleOpen}>Edit</a> : <Button icon labelPosition='left' onClick={this.handleOpen}><Icon name='add circle' />Note</Button>
     
     return (
       <Modal
