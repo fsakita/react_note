@@ -13,10 +13,12 @@ const noteActions = {
     let allNotes = NoteService.getNotes() || []
     switch (type) {
       case noteActionTypes.NOTES_ADD_NOTE:
-        let { text, action, noteIndex, tags } = payload
+        let { text, action, noteIndex, tags, createdAt, lastModifiedAt } = payload
         let noteObj = {
             text: text,
-            tags: tags
+            tags: tags,
+            createdAt: createdAt,
+            lastModifiedAt: lastModifiedAt
         }
         if(action == 'edit'){
             allNotes[noteIndex] = noteObj

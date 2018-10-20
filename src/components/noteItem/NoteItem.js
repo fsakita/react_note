@@ -19,7 +19,10 @@ const NoteItem = (props) => {
         </Card.Content>
         <Card.Content extra>
           <div className='c-note_item__card__buttons'>
-            <NoteForm text={note.text} tags={note.tags} noteIndex={noteIndex} action='edit' />
+            <NoteForm {...note}
+                      noteIndex={noteIndex}
+                      action='edit'
+            />
             <a className='c-note_item__card__buttons-remove' onClick={handleClickRemove}>Remove</a>
           </div>
         </Card.Content>
