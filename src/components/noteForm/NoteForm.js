@@ -26,10 +26,6 @@ class NoteForm extends React.Component {
     this.updateTagValue = this.updateTagValue.bind(this)
   }
 
-  componentWillReceiveProps () {
-    console.log('updated')
-  }
-
   handleOpen () {
     this.setState({ modalOpen: true })
   }
@@ -85,8 +81,6 @@ class NoteForm extends React.Component {
 
   render() {
     let { text, action, tagsInputValue, tags } = this.state
-    console.log(this.state)
-  
     let trigger = action === 'edit' ? <a className='c-note_item__card__buttons-edit' onClick={this.handleOpen}>Edit</a> : <Button icon labelPosition='left' onClick={this.handleOpen}><Icon name='add circle' />Note</Button>
     
     return (

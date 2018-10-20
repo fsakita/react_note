@@ -30,7 +30,7 @@ class NoteListContainer extends React.Component {
 
   render () {
     let { notes} = this.state
-    console.log(notes)
+    // console.log(notes)
     return (
       <div>
       {notes &&
