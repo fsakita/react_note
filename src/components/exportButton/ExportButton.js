@@ -28,11 +28,15 @@ class ExportButton extends React.Component {
 
 	render() {
 		let { notes } = this.state
+
 		return (
-			<ExcelFile element={<Button icon labelPosition='left'><Icon name='download' />Export</Button>}>
+			<ExcelFile filename='Notes' element={<Button icon labelPosition='left'><Icon name='download' />Export</Button>}>
 				{notes &&
 				<ExcelSheet data={notes} name="Notes">
 					<ExcelColumn label="Notes" value='text'/>
+					<ExcelColumn label="Tags" value={(col) => col.tags.join(',')}/>
+					<ExcelColumn label="Create At" value='createdAt'/>
+					<ExcelColumn label="Last Modified At" value='lastModifiedAt'/>
 				</ExcelSheet>
 				}
 			</ExcelFile>
